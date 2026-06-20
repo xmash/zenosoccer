@@ -4,7 +4,7 @@ import React from 'react';
 import { AppShell } from '@/components/layout/app-shell';
 import { 
   GitMerge, ChevronRight, UserPlus, Info, 
-  TrendingUp, Award, Target, Star, Users
+  TrendingUp, Award, Target, Star, Users, Activity
 } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
