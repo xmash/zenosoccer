@@ -1,0 +1,22 @@
+{
+  "placeholderImages": [
+    {
+      "id": "hero-dashboard",
+      "description": "Aerial view of a soccer training complex",
+      "imageUrl": "https://picsum.photos/seed/soc1/1200/600",
+      "imageHint": "soccer field training"
+    },
+    {
+      "id": "player-placeholder",
+      "description": "Professional young soccer player profile",
+      "imageUrl": "https://picsum.photos/seed/p1/400/400",
+      "imageHint": "soccer player profile"
+    },
+    {
+      "id": "video-thumbnail",
+      "description": "Soccer match video snapshot",
+      "imageUrl": "https://picsum.photos/seed/vid1/600/400",
+      "imageHint": "soccer match video"
+    }
+  ]
+}
