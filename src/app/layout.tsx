@@ -2,8 +2,8 @@ import type {Metadata} from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'SoccerOS - Professional Soccer Operations',
-  description: 'The complete soccer operating system for elite clubs and academies.',
+  title: 'Zenosoccer - The Zen of Soccer Operations',
+  description: 'The calm, powerful, and complete soccer operating system for elite clubs and academies.',
 };
 
 export default function RootLayout({

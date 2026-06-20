@@ -39,7 +39,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           <div className="w-8 h-8 bg-primary rounded flex items-center justify-center">
             <Shield className="text-white w-5 h-5" />
           </div>
-          <span className="font-headline font-bold text-xl tracking-tight uppercase">SoccerOS</span>
+          <span className="font-headline font-bold text-xl tracking-tight uppercase">Zenosoccer</span>
         </div>
         
         <ScrollArea className="flex-1 px-4">
@@ -82,7 +82,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             <Button variant="ghost" size="icon">
               <Menu className="w-5 h-5" />
             </Button>
-            <span className="font-headline font-bold uppercase tracking-tight">SoccerOS</span>
+            <span className="font-headline font-bold uppercase tracking-tight">Zenosoccer</span>
           </div>
 
           <div className="hidden md:flex items-center bg-muted/50 rounded-full px-3 py-1.5 w-96 max-w-full">
