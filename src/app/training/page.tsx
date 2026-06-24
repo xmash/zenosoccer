@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import { AppPageHeader } from '@/components/sections/app-page-header';
 import { AppShell } from '@/components/layout/app-shell';
 import { 
   Plus, Calendar as CalendarIcon, Clock, Users, 
@@ -16,21 +17,20 @@ export default function TrainingPage() {
   return (
     <AppShell>
       <div className="space-y-8">
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-          <div>
-            <h1 className="text-3xl font-bold tracking-tight">Training Planner</h1>
-            <p className="text-muted-foreground">Schedule sessions, manage drills, and track player attendance.</p>
-          </div>
-          <div className="flex gap-2">
-            <Button variant="outline" className="gap-2">
-              <CalendarIcon className="w-4 h-4" /> Weekly Calendar
-            </Button>
-            <Button className="gap-2">
-              <Plus className="w-4 h-4" /> Create Session
-            </Button>
-          </div>
-        </div>
+        <AppPageHeader
+          title="Training Planner"
+          description="Schedule sessions, manage drills, and track player attendance."
+          actions={
+            <>
+              <Button variant="outline" className="gap-2">
+                <CalendarIcon className="w-4 h-4" /> Weekly Calendar
+              </Button>
+              <Button className="gap-2">
+                <Plus className="w-4 h-4" /> Create Session
+              </Button>
+            </>
+          }
+        />
 
         <div className="grid grid-cols-1 xl:grid-cols-4 gap-8">
           {/* Left Panel - Session List */}

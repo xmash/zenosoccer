@@ -37,6 +37,10 @@
     --sidebar-accent-foreground: 0 0% 100%;
     --sidebar-border: 222 21% 18%;
     --sidebar-ring: 142 68% 37%;
+    --fifa-blue: 210 99% 50%; /* #018AFE */
+    --fifa-blue-foreground: 0 0% 100%;
+    --fifa-yellow: 52 100% 51%; /* #FFDE03 */
+    --fifa-yellow-foreground: 222 20% 12%;
   }
 }
 
@@ -45,9 +49,61 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-body;
+    @apply bg-background text-base text-foreground font-body;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-headline font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  .section {
+    @apply w-full py-12 md:py-24 lg:py-32;
+  }
+
+  .section-inner {
+    @apply container mx-auto px-4 md:px-6;
+  }
+
+  .eyebrow {
+    @apply text-base font-semibold uppercase tracking-widest text-primary;
+  }
+
+  .marketing-card {
+    @apply rounded-2xl border border-border bg-card text-card-foreground shadow-sm transition-shadow hover:shadow-md;
+  }
+
+  .marketing-card-muted {
+    @apply rounded-2xl bg-muted/40 border border-transparent;
+  }
+
+  .feature-icon-wrap {
+    @apply inline-flex rounded-xl bg-primary/10 p-3;
+  }
+
+  .feature-icon {
+    @apply h-8 w-8 text-primary;
+  }
+
+  .banner-surface {
+    @apply bg-sidebar text-sidebar-foreground;
+  }
+
+  /* Light page header — card surface on app background (not dark chrome) */
+  .banner-surface-light {
+    @apply border-b border-border bg-card text-card-foreground;
+  }
+
+  .page-header {
+    @apply w-full pb-10 pt-10 md:pb-12 md:pt-16 lg:pb-14 lg:pt-20;
+  }
+
+  .page-main {
+    @apply min-h-[calc(100vh-5rem)];
+  }
+
+  /* Content below PageHeader — top gap + footer breathing room (layout standard §10) */
+  .page-body {
+    @apply w-full flex-1 pt-8 md:pt-12 lg:pt-16 pb-20 md:pb-28 lg:pb-36;
   }
 }

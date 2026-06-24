@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import { AppPageHeader } from '@/components/sections/app-page-header';
 import { AppShell } from '@/components/layout/app-shell';
 import { StatCard } from '@/components/soccer/stat-card';
 import { 
@@ -23,17 +24,16 @@ export default function DashboardPage() {
   return (
     <AppShell>
       <div className="space-y-8">
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-          <div>
-            <h1 className="text-3xl font-bold tracking-tight">Club Overview</h1>
-            <p className="text-muted-foreground">Technical and administrative command center for Everton Academy.</p>
-          </div>
-          <div className="flex gap-2">
-            <Button variant="outline">Download Report</Button>
-            <Button>Season Management</Button>
-          </div>
-        </div>
+        <AppPageHeader
+          title="Club Overview"
+          description="Technical and administrative command center for Everton Academy."
+          actions={
+            <>
+              <Button variant="outline">Download Report</Button>
+              <Button>Season Management</Button>
+            </>
+          }
+        />
 
         {/* Stats Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">

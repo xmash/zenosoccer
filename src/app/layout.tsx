@@ -2,7 +2,7 @@ import type {Metadata} from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Zenosoccer - The Zen of Soccer Operations',
+  title: "Zen O' Soccer - The Zen of Soccer",
   description: 'The calm, powerful, and complete soccer operating system for elite clubs and academies.',
 };
 

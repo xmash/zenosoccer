@@ -14,6 +14,20 @@ export default {
         headline: ['Space Grotesk', 'sans-serif'],
         code: ['monospace'],
       },
+      /* 16px floor for readable body copy — frontend-design-layout-standard §6 */
+      fontSize: {
+        xs: ['1rem', { lineHeight: '1.5rem' }],
+        sm: ['1rem', { lineHeight: '1.5rem' }],
+        base: ['1rem', { lineHeight: '1.625rem' }],
+        lg: ['1.125rem', { lineHeight: '1.75rem' }],
+        xl: ['1.25rem', { lineHeight: '1.75rem' }],
+        '2xl': ['1.5rem', { lineHeight: '2rem' }],
+        '3xl': ['1.875rem', { lineHeight: '2.25rem' }],
+        '4xl': ['2.25rem', { lineHeight: '2.5rem' }],
+        '5xl': ['3rem', { lineHeight: '1' }],
+        '6xl': ['3.75rem', { lineHeight: '1' }],
+        '7xl': ['4.5rem', { lineHeight: '1' }],
+      },
       colors: {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
@@ -64,6 +78,12 @@ export default {
           'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
           border: 'hsl(var(--sidebar-border))',
           ring: 'hsl(var(--sidebar-ring))',
+        },
+        fifa: {
+          blue: 'hsl(var(--fifa-blue))',
+          'blue-foreground': 'hsl(var(--fifa-blue-foreground))',
+          yellow: 'hsl(var(--fifa-yellow))',
+          'yellow-foreground': 'hsl(var(--fifa-yellow-foreground))',
         },
       },
       borderRadius: {

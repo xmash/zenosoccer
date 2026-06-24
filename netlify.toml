@@ -1,0 +1,20 @@
+# Zeno Soccer — Netlify deploy (Next.js 15)
+#
+# In Netlify: Site settings → Environment variables
+#   Required for football data (reads R2, zero API spend):
+#     R2_BUCKET_NAME, R2_ACCOUNT_ID, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY
+#     R2_ENDPOINT (optional; defaults to account R2 S3 endpoint)
+#   Do NOT set in production unless you want live upstream fetches:
+#     APISPORTS_KEY, API_FOOTBALL_ALLOW_FETCH, API_FOOTBALL_FORCE_REFRESH
+
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[dev]
+  command = "npm run dev"
+  port = 9002
+  targetPort = 9002

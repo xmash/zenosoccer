@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import { AppPageHeader } from '@/components/sections/app-page-header';
 import { AppShell } from '@/components/layout/app-shell';
 import { PLAYERS } from '@/lib/mock-data';
 import { 
@@ -29,36 +30,35 @@ export default function PlayersPage() {
   return (
     <AppShell>
       <div className="space-y-6">
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div>
-            <h1 className="text-3xl font-bold tracking-tight">Player Management</h1>
-            <p className="text-muted-foreground">Manage and track 486 registered players across all age groups.</p>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="flex border rounded-md p-1 bg-white">
-              <Button 
-                variant={view === 'grid' ? 'secondary' : 'ghost'} 
-                size="sm" 
-                onClick={() => setView('grid')}
-                className="px-2 h-8"
-              >
-                <Grid2X2 className="w-4 h-4" />
+        <AppPageHeader
+          title="Player Management"
+          description="Manage and track 486 registered players across all age groups."
+          actions={
+            <>
+              <div className="flex border rounded-md p-1 bg-white">
+                <Button 
+                  variant={view === 'grid' ? 'secondary' : 'ghost'} 
+                  size="sm" 
+                  onClick={() => setView('grid')}
+                  className="px-2 h-8"
+                >
+                  <Grid2X2 className="w-4 h-4" />
+                </Button>
+                <Button 
+                  variant={view === 'table' ? 'secondary' : 'ghost'} 
+                  size="sm" 
+                  onClick={() => setView('table')}
+                  className="px-2 h-8"
+                >
+                  <ListIcon className="w-4 h-4" />
+                </Button>
+              </div>
+              <Button className="gap-2">
+                <UserPlus className="w-4 h-4" /> Add Player
               </Button>
-              <Button 
-                variant={view === 'table' ? 'secondary' : 'ghost'} 
-                size="sm" 
-                onClick={() => setView('table')}
-                className="px-2 h-8"
-              >
-                <ListIcon className="w-4 h-4" />
-              </Button>
-            </div>
-            <Button className="gap-2">
-              <UserPlus className="w-4 h-4" /> Add Player
-            </Button>
-          </div>
-        </div>
+            </>
+          }
+        />
 
         {/* Filters */}
         <div className="flex flex-col sm:flex-row gap-4">

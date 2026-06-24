@@ -1,7 +1,11 @@
 import type {NextConfig} from 'next';
+import path from 'path';
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  turbopack: {
+    // Prevent Next from using parent pnpm-lock.yaml as workspace root (breaks .env.local)
+    root: path.resolve(__dirname),
+  },
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -25,6 +29,12 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'picsum.photos',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'media.api-sports.io',
         port: '',
         pathname: '/**',
       },

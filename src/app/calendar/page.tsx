@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import { AppPageHeader } from '@/components/sections/app-page-header';
 import { AppShell } from '@/components/layout/app-shell';
 import { 
   ChevronLeft, ChevronRight, Calendar as CalendarIcon, 
@@ -25,16 +26,16 @@ export default function CalendarPage() {
   return (
     <AppShell>
       <div className="space-y-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-          <div>
-            <h1 className="text-3xl font-bold tracking-tight">Club Calendar</h1>
-            <p className="text-muted-foreground">Unified schedule for all matches, training sessions, and events.</p>
-          </div>
-          <div className="flex gap-2">
-            <Button variant="outline" className="gap-2"><CalendarIcon className="w-4 h-4" /> Sync Calendar</Button>
-            <Button className="gap-2"><Plus className="w-4 h-4" /> Create Event</Button>
-          </div>
-        </div>
+        <AppPageHeader
+          title="Club Calendar"
+          description="Unified schedule for all matches, training sessions, and events."
+          actions={
+            <>
+              <Button variant="outline" className="gap-2"><CalendarIcon className="w-4 h-4" /> Sync Calendar</Button>
+              <Button className="gap-2"><Plus className="w-4 h-4" /> Create Event</Button>
+            </>
+          }
+        />
 
         <div className="grid grid-cols-1 xl:grid-cols-4 gap-8">
           <div className="space-y-6">

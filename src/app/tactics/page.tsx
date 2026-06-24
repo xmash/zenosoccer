@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import { AppPageHeader } from '@/components/sections/app-page-header';
 import { AppShell } from '@/components/layout/app-shell';
 import { 
   Shield, Layers, MousePointer2, Settings, 
@@ -15,18 +16,17 @@ export default function TacticsPage() {
   return (
     <AppShell>
       <div className="space-y-8">
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-          <div>
-            <h1 className="text-3xl font-bold tracking-tight">Tactical Designer</h1>
-            <p className="text-muted-foreground">Model match play, define team principles, and visualize formations.</p>
-          </div>
-          <div className="flex gap-2">
-            <Button variant="outline" size="sm" className="gap-2"><Save className="w-4 h-4" /> Save</Button>
-            <Button variant="outline" size="sm" className="gap-2"><Share2 className="w-4 h-4" /> Share</Button>
-            <Button size="sm" className="gap-2"><Copy className="w-4 h-4" /> New Model</Button>
-          </div>
-        </div>
+        <AppPageHeader
+          title="Tactical Designer"
+          description="Model match play, define team principles, and visualize formations."
+          actions={
+            <>
+              <Button variant="outline" size="sm" className="gap-2"><Save className="w-4 h-4" /> Save</Button>
+              <Button variant="outline" size="sm" className="gap-2"><Share2 className="w-4 h-4" /> Share</Button>
+              <Button size="sm" className="gap-2"><Copy className="w-4 h-4" /> New Model</Button>
+            </>
+          }
+        />
 
         <div className="grid grid-cols-1 xl:grid-cols-4 gap-8">
           {/* Tactical Board Area */}

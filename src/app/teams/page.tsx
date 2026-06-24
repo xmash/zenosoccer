@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import { AppPageHeader } from '@/components/sections/app-page-header';
 import { AppShell } from '@/components/layout/app-shell';
 import { TEAMS } from '@/lib/mock-data';
 import { 
@@ -15,17 +16,16 @@ export default function TeamsPage() {
   return (
     <AppShell>
       <div className="space-y-8">
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-          <div>
-            <h1 className="text-3xl font-bold tracking-tight">Club Teams</h1>
-            <p className="text-muted-foreground">Overview of all age groups, rosters, and coach assignments.</p>
-          </div>
-          <div className="flex gap-2">
-            <Button variant="outline" className="gap-2"><Layout className="w-4 h-4" /> Formation Presets</Button>
-            <Button className="gap-2"><Shield className="w-4 h-4" /> Create New Team</Button>
-          </div>
-        </div>
+        <AppPageHeader
+          title="Club Teams"
+          description="Overview of all age groups, rosters, and coach assignments."
+          actions={
+            <>
+              <Button variant="outline" className="gap-2"><Layout className="w-4 h-4" /> Formation Presets</Button>
+              <Button className="gap-2"><Shield className="w-4 h-4" /> Create New Team</Button>
+            </>
+          }
+        />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {TEAMS.map((team) => (

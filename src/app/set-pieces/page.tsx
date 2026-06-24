@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import { AppPageHeader } from '@/components/sections/app-page-header';
 import { AppShell } from '@/components/layout/app-shell';
 import { 
   Target, Info, Plus, Play, 
@@ -22,17 +23,16 @@ export default function SetPiecesPage() {
   return (
     <AppShell>
       <div className="space-y-8">
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-          <div>
-            <h1 className="text-3xl font-bold tracking-tight">Set Pieces</h1>
-            <p className="text-muted-foreground">Design dead-ball routines, assign roles, and review success rates.</p>
-          </div>
-          <div className="flex gap-2">
-            <Button variant="outline" size="sm" className="gap-2"><Save className="w-4 h-4" /> Library</Button>
-            <Button size="sm" className="gap-2"><Plus className="w-4 h-4" /> New Routine</Button>
-          </div>
-        </div>
+        <AppPageHeader
+          title="Set Pieces"
+          description="Design dead-ball routines, assign roles, and review success rates."
+          actions={
+            <>
+              <Button variant="outline" size="sm" className="gap-2"><Save className="w-4 h-4" /> Library</Button>
+              <Button size="sm" className="gap-2"><Plus className="w-4 h-4" /> New Routine</Button>
+            </>
+          }
+        />
 
         <div className="grid grid-cols-1 xl:grid-cols-4 gap-8">
            {/* Visual Board Focus */}

@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import { AppPageHeader } from '@/components/sections/app-page-header';
 import { AppShell } from '@/components/layout/app-shell';
 import { 
   BarChart3, TrendingUp, Target, Activity, 
@@ -27,17 +28,16 @@ export default function AnalyticsPage() {
   return (
     <AppShell>
       <div className="space-y-8">
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-          <div>
-            <h1 className="text-3xl font-bold tracking-tight">Analytics Hub</h1>
-            <p className="text-muted-foreground">Deep performance insights and data visualization across the club.</p>
-          </div>
-          <div className="flex gap-2">
-            <Button variant="outline" className="gap-2"><Download className="w-4 h-4" /> Export Data</Button>
-            <Button className="gap-2"><Calendar className="w-4 h-4" /> Date Range <ChevronDown className="w-4 h-4" /></Button>
-          </div>
-        </div>
+        <AppPageHeader
+          title="Analytics Hub"
+          description="Deep performance insights and data visualization across the club."
+          actions={
+            <>
+              <Button variant="outline" className="gap-2"><Download className="w-4 h-4" /> Export Data</Button>
+              <Button className="gap-2"><Calendar className="w-4 h-4" /> Date Range <ChevronDown className="w-4 h-4" /></Button>
+            </>
+          }
+        />
 
         {/* Global Filters */}
         <div className="flex flex-wrap items-center gap-2 p-4 bg-white rounded-xl shadow-sm border">

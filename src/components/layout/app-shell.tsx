@@ -1,10 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
-import { 
-  LayoutDashboard, Users, UserPlus, Shield, Workflow, 
-  Dumbbell, DraftingCompass, Target, Trophy, Video, 
-  BarChart3, GitMerge, Search, Calendar, MessageSquare, 
-  Settings, Bell, LogOut, Menu
+import {
+  LayoutDashboard, Users, UserPlus, Shield, Workflow,
+  Dumbbell, DraftingCompass, Target, Trophy, ClipboardList, Video,
+  BarChart3, GitMerge, Search, Calendar, MessageSquare,
+  Settings, Bell, LogOut, Menu, Globe
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -15,12 +15,14 @@ const NAV_ITEMS = [
   { label: 'Dashboard', icon: LayoutDashboard, href: '/dashboard' },
   { label: 'Players', icon: Users, href: '/players' },
   { label: 'Registration', icon: UserPlus, href: '/registration' },
-  { label: 'Teams', icon: Shield, href: '/teams' },
-  { label: 'Selection', icon: Workflow, href: '/selection' },
+  { label: 'Batches / Teams', icon: Shield, href: '/teams' },
+  { label: 'Squad Selection', icon: Workflow, href: '/selection' },
   { label: 'Training', icon: Dumbbell, href: '/training' },
-  { label: 'Tactics', icon: DraftingCompass, href: '/tactics' },
-  { label: 'Set Pieces', icon: Target, href: '/set-pieces' },
-  { label: 'Matches', icon: Trophy, href: '/matches' },
+  { label: 'Nets', icon: Target, href: '/set-pieces' },
+  { label: 'Strategy', icon: DraftingCompass, href: '/tactics' },
+  { label: 'Match Center', icon: Trophy, href: '/matches' },
+  { label: 'Competitions', icon: Globe, href: '/competitions' },
+  { label: 'Scorecards', icon: ClipboardList, href: '/scorecards' },
   { label: 'Video Room', icon: Video, href: '/video-room' },
   { label: 'Analytics', icon: BarChart3, href: '/analytics' },
   { label: 'Academy Pathway', icon: GitMerge, href: '/academy-pathway' },
@@ -39,7 +41,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           <div className="w-8 h-8 bg-primary rounded flex items-center justify-center">
             <Shield className="text-white w-5 h-5" />
           </div>
-          <span className="font-headline font-bold text-xl tracking-tight uppercase">Zenosoccer</span>
+          <span className="font-headline font-bold text-xl tracking-tight">Zen O&apos; Soccer</span>
         </div>
         
         <ScrollArea className="flex-1 px-4">
@@ -112,7 +114,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
         {/* Page Area */}
         <ScrollArea className="flex-1">
-          <div className="p-6 md:p-8 max-w-7xl mx-auto w-full">
+          <div className="mx-auto w-full max-w-7xl min-h-[calc(100vh-4rem)] p-6 md:p-8">
             {children}
           </div>
         </ScrollArea>

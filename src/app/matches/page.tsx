@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import { AppPageHeader } from '@/components/sections/app-page-header';
 import { AppShell } from '@/components/layout/app-shell';
 import { MATCHES } from '@/lib/mock-data';
 import { 
@@ -17,17 +18,16 @@ export default function MatchesPage() {
   return (
     <AppShell>
       <div className="space-y-8">
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-          <div>
-            <h1 className="text-3xl font-bold tracking-tight">Match Center</h1>
-            <p className="text-muted-foreground">Manage upcoming fixtures, review results, and plan lineups.</p>
-          </div>
-          <div className="flex gap-2">
-            <Button variant="outline" size="sm" className="gap-2"><Calendar className="w-4 h-4" /> Season Sync</Button>
-            <Button size="sm" className="gap-2"><Trophy className="w-4 h-4" /> New Fixture</Button>
-          </div>
-        </div>
+        <AppPageHeader
+          title="Match Center"
+          description="Manage upcoming fixtures, review results, and plan lineups."
+          actions={
+            <>
+              <Button variant="outline" size="sm" className="gap-2"><Calendar className="w-4 h-4" /> Season Sync</Button>
+              <Button size="sm" className="gap-2"><Trophy className="w-4 h-4" /> New Fixture</Button>
+            </>
+          }
+        />
 
         <Tabs defaultValue="upcoming" className="w-full">
           <TabsList className="bg-white border w-full justify-start h-12 p-1 gap-1 mb-6">

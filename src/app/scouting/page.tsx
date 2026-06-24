@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import { AppPageHeader } from '@/components/sections/app-page-header';
 import { AppShell } from '@/components/layout/app-shell';
 import { 
   Search, Filter, Plus, FileText, Star, 
@@ -27,16 +28,16 @@ export default function ScoutingPage() {
   return (
     <AppShell>
       <div className="space-y-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-          <div>
-            <h1 className="text-3xl font-bold tracking-tight">Scouting Network</h1>
-            <p className="text-muted-foreground">Global prospect tracking and external talent identification.</p>
-          </div>
-          <div className="flex gap-2">
-            <Button variant="outline" className="gap-2"><Download className="w-4 h-4" /> Export Watchlist</Button>
-            <Button className="gap-2"><Plus className="w-4 h-4" /> New Scouting Report</Button>
-          </div>
-        </div>
+        <AppPageHeader
+          title="Scouting Network"
+          description="Global prospect tracking and external talent identification."
+          actions={
+            <>
+              <Button variant="outline" className="gap-2"><Download className="w-4 h-4" /> Export Watchlist</Button>
+              <Button className="gap-2"><Plus className="w-4 h-4" /> New Scouting Report</Button>
+            </>
+          }
+        />
 
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
           <div className="lg:col-span-3 space-y-6">

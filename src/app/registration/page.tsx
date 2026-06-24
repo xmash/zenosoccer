@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import { AppPageHeader } from '@/components/sections/app-page-header';
 import { AppShell } from '@/components/layout/app-shell';
 import { 
   FileText, User, Users, Shield, 
@@ -24,17 +25,16 @@ export default function RegistrationPage() {
   return (
     <AppShell>
       <div className="space-y-8">
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-          <div>
-            <h1 className="text-3xl font-bold tracking-tight">Registration Hub</h1>
-            <p className="text-muted-foreground">Manage intake forms, tryout invitations, and onboarding documents.</p>
-          </div>
-          <div className="flex gap-2">
-            <Button variant="outline">Registration Link</Button>
-            <Button className="gap-2">New Intake Form</Button>
-          </div>
-        </div>
+        <AppPageHeader
+          title="Registration Hub"
+          description="Manage intake forms, tryout invitations, and onboarding documents."
+          actions={
+            <>
+              <Button variant="outline">Registration Link</Button>
+              <Button className="gap-2">New Intake Form</Button>
+            </>
+          }
+        />
 
         <Tabs defaultValue="all" className="w-full">
            <TabsList className="bg-white border w-full justify-start h-12 p-1 gap-1 mb-6">
