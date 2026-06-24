@@ -26,23 +26,39 @@ function proxyHeaders(): Record<string, string> | null {
   return null;
 }
 
-const cors = { 'Access-Control-Allow-Origin': '*' };
+const cors = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'GET, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type',
+};
+
+function asResponseArray(cached: unknown): unknown[] {
+  if (Array.isArray(cached)) return cached;
+  return cached == null ? [] : [cached];
+}
+
+export async function OPTIONS() {
+  return new NextResponse(null, { status: 204, headers: cors });
+}
 
 export async function GET(req: NextRequest) {
-  const headers = proxyHeaders();
-  if (!headers) {
-    return NextResponse.json({ message: 'No API key configured.' }, { status: 401, headers: cors });
-  }
-
   const apiPath = req.nextUrl.searchParams.get('path') ?? '';
   if (!apiPath.startsWith('/')) {
     return NextResponse.json({ message: 'Invalid path.' }, { status: 400, headers: cors });
   }
 
-  const key = cachePathKey(apiPath);
-  const cached = await readPersistentCacheByPath<unknown[]>(apiPath);
+  // Serve R2 / disk cache without an upstream API key (mobile + web).
+  const cached = await readPersistentCacheByPath<unknown>(apiPath);
   if (cached !== null) {
-    return NextResponse.json({ response: cached, cached: true }, { headers: cors });
+    return NextResponse.json({ response: asResponseArray(cached), cached: true }, { headers: cors });
+  }
+
+  const headers = proxyHeaders();
+  if (!headers) {
+    return NextResponse.json(
+      { response: [], message: 'Not cached and no API key configured.' },
+      { status: 404, headers: cors },
+    );
   }
 
   if (!isAutoFetchAllowed(apiPath)) {
@@ -52,6 +68,7 @@ export async function GET(req: NextRequest) {
     );
   }
 
+  const key = cachePathKey(apiPath);
   const { baseUrl } = getApiFootballConfig();
 
   try {
@@ -71,7 +88,7 @@ export async function GET(req: NextRequest) {
       { allowFetch: true },
     );
 
-    return NextResponse.json({ response: data, cached: false }, { headers: cors });
+    return NextResponse.json({ response: asResponseArray(data), cached: false }, { headers: cors });
   } catch (e) {
     const message = e instanceof Error ? e.message : 'Proxy fetch failed';
     return NextResponse.json({ response: [], message }, { status: 502, headers: cors });
